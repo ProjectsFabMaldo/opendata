@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "AperturaOD";
+}
+
+<h2>Apertura de Datos Abiertos</h2>
+<h3>@ViewBag.Message</h3>
+
+<body>
+    <div>
+        <p>
+            Recomendamos estos cuatro conceptos para la creación de Datos Abiertos.:
+        </p>
+        <br />
+
+        <ol type=”1” start='1'>
+            <li><b>Fijar el conjunto de datos </b> pero rectificando si tiene problemas en una etapa posterior.</li>
+            <li><b>Utilizar una licencia abierta. </b> Identificar los derechos de propiedad intelectual de la información y aplicar una licencia adecuada que soporte la definición de apertura de los datos.</li>
+            <li><b>Distribuir la información </b> en formato útil de conjunto de datos. Una alternativa es proporcionar una API como la que ofrece esta web.</li>
+            <li><b>Dar visibilidad a los datos </b> publicándolos a través de un sitio web.</li>
+        </ol>
+            <br />
+            <h3>Escoger los conjuntos de datos</h3>
+            <p>
+                El siguiente paso es identificar qué conjuntos de datos pueden ser abiertos aunque en etapas posteriores se pueda revisar en detalle si 
+                cada conjunto de datos es adecuado para abrirse. Para determinar esta lista de conjuntos hay que tener en cuenta si resulta útil publicar todos los datos de uno.
+            </p>
+            <br />
+            <h3>Solicitar una Licencia Abierta</h3>
+            <p>
+                Para conseguir que los datos sean legalmente libres y hacerlos disponibles <b>se les debería poner una licencia.</b> Aconsejamos consultar 
+                esta <a href="http://opendefinition.org/licenses/">lista de licencias</a> y sus condiciones de uso en caso de no tener claro cuál escoger. 
+                Además, para saber cómo utilizar la licencia te recomendamos la <a href="http://opendatacommons.org/guide/">guía</a> de Open Data Commons.
+            </p>
+            <br />
+            <h3>Exponer los datos</h3>
+            <p>
+                La información contenida en el conjunto de datos no debe tener un precio mayor que el coste de reproducción, debería ser una descarga gratuita en Internet. 
+                Además, los datos deberían estar disponibles como un conjunto completo en formatos legibles que permitan una mayor reutilización. Una API web o un servicio 
+                parecido también pueden ser muy útil.
+            </p>
+        <br />
+            <h4>Página Web</h4>
+            <p>
+                El principal método es el de proporcionar los archivos de datos para ser descargados desde páginas web. El inconveniente que tiene es que sobre todo es muy 
+                complicado para otros usuarios que crean herramientas con tus datos, descubrir dónde encontrar información actualizada.
+            </p>
+        <br />
+            <h4>Repositorios de terceros</h4>
+            <p>
+                Muchos repositorios sirven como centros de datos para que las agencias públicas puedan alojar grandes cantidades de datos gratuitamente.
+            </p>
+        <br />
+            <h4>Servidores FTP</h4>
+            <p>
+                El sistema FTP es una alternativa a trabajar en lugar del HTTP, pero es utilizado específicamente para la transferencia de archivos. Esto hace que la apariencia del sitio se vea negativamente afectada durante el desarrollo web.
+            </p>
+        <br />
+            <h4>Torrents</h4>
+            <p>
+                BitTorrent es utiliza archivos llamados que separan el coste de distribución de los archivos entre toda la gente que accede a esos archivos. Es una alternativa muy eficiente si se va a distribuir grandes volúmenes de datos.
+            </p>
+        <br />
+            <h4>API</h4>
+            <p>
+                Otra alternativa es publicar los datos a través de una API (interfaz de programación de aplicaciones) conectada a una base de datos que se actualiza constantemente. 
+                Es una buena opción si lo que se pretende es permitir el acceso a los datos en grandes cantidades. Este sistema permite que la información esté disponible 
+                independientemente del proveedor original de los datos para poder hacer copias de ellos, redistribuirlas e incluso desarrollar servicios usándolos. Sin embargo, 
+                la principal desventaja es el precio que implica implementarlo y mantenerlo.
+            </p>
+            <br />
+            <p>
+                Un aspecto importante de la API es el formato en el que se presentan los archivos de datos. Un buen ejemplo es el Ayuntamiento de Madrid que permite que los datos puedan descargarse en formato TXT, PDF, JSON, CSV, XLS y XML entre otros.
+            </p>
+</div>
+</body>
+

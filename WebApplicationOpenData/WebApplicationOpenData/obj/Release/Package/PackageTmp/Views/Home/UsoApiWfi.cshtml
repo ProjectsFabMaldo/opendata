@@ -1,0 +1,101 @@
+﻿@model WebApplicationOpenData.Models.Wifi
+
+@{
+    ViewBag.Title = "UsoApiWfi";
+}
+
+<head>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+
+<body id="bodyf">
+    <h2>Uso Api Wifi</h2>
+    <h3>@ViewBag.Message</h3>
+
+
+    <div>
+
+        <p>
+            <a href="~/Scripts/Zonas Wifi.csv" download="~/Scripts/Zonas Wifi.csv">Descarga archvio .csv del que se obtuvo la API Wifi_Locations </a>
+            Fuente de origen
+            <a href="http://datos.madrid.es/portal/site/egob/menuitem.d3089948cb18b1bb68d8a521ecd08a0c/?vgnextoid=d02804d4aab90410VgnVCM100000171f5a0aRCRD&vgnextchannel=e7a412b9ace9f310VgnVCM100000171f5a0aRCRD">
+                Portal de datos abiertos del Ayuntamiento de Madrid
+            </a>
+        </p>
+
+        <section id="div4">
+            <p>Pulse el boton para hacer uso de la API: <a href="http://apigrupoe20160115121608.azurewebsites.net/api/values/Wifi_Locations"> http://apigrupoe20160115121608.azurewebsites.net/api/values/Wifi_Locations </a> </p>
+        </section>
+
+        <p><input id="btn5" type="button" value="Usar API - Consulta Wifis" style="font-size: 1em;"></p>
+
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+        <script>
+            var codingAPI = "http://apigrupoe20160115121608.azurewebsites.net/api/values/Wifi_Locations";
+
+        $(function () {
+            $('#btn5').one('click', function () {
+                $.getJSON(codingAPI, function (data) {
+
+                    var descripList = document.getElementsByTagName("dl")[0];
+
+                    $.each(data, function (key, val) {
+
+                        var centro = "";
+
+                        centro = val.substring(0);
+                        
+
+                            var descripItem = document.createElement("dt");
+                            var descripItem2 = document.createElement("dd");   
+                            var textoDescrip = document.createTextNode("Centro: ");
+                            var textoDescrip2 = document.createTextNode(centro);
+                            
+                            descripItem.appendChild(textoDescrip);
+                            descripItem2.appendChild(textoDescrip2);
+
+                            descripList.appendChild(descripItem);
+                            descripList.appendChild(descripItem2);
+                            
+
+                    });
+                   /*
+                    $('<ul/>', {
+                        html: sayingsList.join('')
+                    }).appendTo('#div4');
+                    */
+                })
+
+                .done(function () { $('#div5').append('getJSON API request succeeded! </li>'); })
+                .fail(function () { $('#div5').append('getJSON API request failed! </li>'); })
+                .always(function () { $('#div5').append('- getJSON API request ended! </li></li>') });
+            });
+        });
+
+        </script>
+    </div>
+
+    <div>
+        <h2>Wifi localizaciones</h2>
+        <hr />
+        <dl class="dl-horizontal">
+            <!--<dt>
+                @Html.DisplayNameFor(model => model.centro)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.centro)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.descripcion)
+            </dd>-->
+
+        </dl>
+    </div>
+</body>
+

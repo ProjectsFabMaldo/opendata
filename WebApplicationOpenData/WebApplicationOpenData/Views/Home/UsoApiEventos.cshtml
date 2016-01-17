@@ -1,0 +1,170 @@
+﻿@model WebApplicationOpenData.Models.AgendaEventos
+
+@{
+    ViewBag.Title = "UsoApiEventos";
+}
+
+<head>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+
+<body id="bodyf">
+    <h2>Uso Api Eventos</h2>
+    <h3>@ViewBag.Message</h3>
+
+
+
+    <div>
+
+        <p>
+            <a href="~/Scripts/agenda_act.csv" download="~/Scripts/agenda_act.csv">Descarga archvio .csv del que se obtuvo la API agenda </a> 
+            Fuente de origen 
+            <a href="http://datos.madrid.es/portal/site/egob/menuitem.d3089948cb18b1bb68d8a521ecd08a0c/?vgnextoid=d02804d4aab90410VgnVCM100000171f5a0aRCRD&vgnextchannel=e7a412b9ace9f310VgnVCM100000171f5a0aRCRD">
+                Portal de datos abiertos del Ayuntamiento de Madrid
+            </a>
+        </p>
+
+        <section id="div4">
+            <p>Pulse el boton para hacer uso de la API: <a href="http://apigrupoe20160115121608.azurewebsites.net/api/values/agenda"> http://apigrupoe20160115121608.azurewebsites.net/api/values/agenda </a> </p>
+        </section>
+
+        <p><input id="btn5" type="button" value="Usar API - Consulta agenda" style="font-size: 1em;"></p>
+
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+        <script>
+        var codingAPI = "http://apigrupoe20160115121608.azurewebsites.net/api/values/agenda";
+
+        $(function () {
+            $('#btn5').one('click', function () {
+                $.getJSON(codingAPI, function (data) {
+                    //var sayingsList = [];
+
+                    // obtiene el elemento <table> y crea un elemento <tbody>
+                    var tabla = document.getElementsByTagName("table")[0];
+                    var tblBody = document.createElement("tbody");
+
+                    $.each(data, function (key, val) {
+                        var col0 = val.indexOf('"');
+                        var col1 = val.indexOf('"', col0 + 1);
+                        var nombre = val.substring(col0 + 1, col1);
+                        var col2 = val.indexOf('"', col1 + 1);
+                        var col3 = val.indexOf('"', col2 + 1);
+                        var fecha = val.substring(col2 + 1, col3);
+                        var col4 = val.indexOf('"', col3 + 1);
+                        var col5 = val.indexOf('"', col4 + 1);
+                        var lugar = val.substring(col4 + 1, col5);
+
+                        //sayingsList.push('<li>' + val + '</li>');
+
+                                // Crea las filas de la tabla
+                                var fila = document.createElement("tr");
+
+                                for (var j = 0; j < 3; j++) {
+                                    // Crea un elemento <td> y un nodo de texto, haz que el nodo de
+                                    // texto sea el contenido de <td>, ubica el elemento <td> al final
+                                    // de la fila de la tabla
+                                    var celda = document.createElement("td");
+                                    var textoCelda ="";
+                                    if (j==0) {
+                                        textoCelda = document.createTextNode(nombre);
+                                    } else if (j==1) {
+                                        textoCelda = document.createTextNode(fecha);
+                                    } else {
+                                        textoCelda = document.createTextNode(lugar);
+                                    }
+                                    celda.appendChild(textoCelda);
+                                    fila.appendChild(celda);
+                                }
+
+                                // agrega la fila al final de la tabla (al final del elemento tblbody)
+                                tblBody.appendChild(fila);
+
+                            // posiciona el <tbody> debajo del elemento <table>
+                            tabla.appendChild(tblBody);
+                            // modifica el atributo "border" de la tabla y lo fija a "2";
+                            //tabla.setAttribute("border", "2");
+
+                    });
+                   /*
+                    $('<ul/>', {
+                        html: sayingsList.join('')
+                    }).appendTo('#div4');
+                    */
+                })
+
+                .done(function () { $('#div5').append('getJSON API request succeeded! </li>'); })
+                .fail(function () { $('#div5').append('getJSON API request failed! </li>'); })
+                .always(function () { $('#div5').append('- getJSON API request ended! </li></li>') });
+            });
+        });
+
+
+    /* //Probando lectura de la API allow ok
+        $.getJSON(codingAPI)
+    .done(function( data ) {
+        if ( console && console.log ) {
+            console.log( "La solicitud se ha completado correctamente." );
+        }
+    })
+    .fail(function( jqXHR, textStatus, errorThrown ) {
+        if ( console && console.log ) {
+            console.log( "Algo ha fallado: " +  textStatus);
+        }
+    });
+    */
+
+        </script>
+
+        <div>
+            <section id="div5">
+                <h2>Agenda Eventos</h2>
+            </section>
+
+            <table id="tablef" summary="a unholy mess" width="553" border="0" cellspacing="0" cellpadding="0" style="align-items">
+                <thead>
+                    <tr>
+                        <th id="cabecera"> <h3>Título</h3> </th>
+                        <th id="cabecera"> <h3>Fecha</h3> </th>
+                        <th id="cabecera"> <h3>Lugar</h3> </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+
+
+        <!--<dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.fecha)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.fecha)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.lugar)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.lugar)
+            </dd>
+
+        </dl>-->
+    </div>
+    <!--<p>
+        /*@@
+        Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+        Html.ActionLink("Back to List", "Index")
+        */
+    </p>-->
+
+</body>

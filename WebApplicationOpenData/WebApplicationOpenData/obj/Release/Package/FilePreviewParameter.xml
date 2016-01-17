@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="opendatamadridayuntamiento" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\fabricio\\Documents\\Visual\ Studio\ 2015\\Projects\\WebApplicationOpenData\\WebApplicationOpenData\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\fabricio\\Documents\\Visual\ Studio\ 2015\\Projects\\WebApplicationOpenData\\WebApplicationOpenData\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="WebApplicationOpenData.Models.AgendaEventosDBContext-Web.config Connection String" description="" value="WebApplicationOpenData.Models.AgendaEventosDBContext_ConnectionString" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\fabricio\\Documents\\Visual\ Studio\ 2015\\Projects\\WebApplicationOpenData\\WebApplicationOpenData\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='WebApplicationOpenData.Models.AgendaEventosDBContext']/@connectionString" />
+  </parameter>
+</parameters>

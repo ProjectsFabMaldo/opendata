@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="WebApplicationOpenData.Models.AgendaEventosDBContext-Web.config Connection String" description="WebApplicationOpenData.Models.AgendaEventosDBContext Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="WebApplicationOpenData.Models.AgendaEventosDBContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\fabricio\\Documents\\Visual\ Studio\ 2015\\Projects\\WebApplicationOpenData\\WebApplicationOpenData\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='WebApplicationOpenData.Models.AgendaEventosDBContext']/@connectionString" />
+  </parameter>
+  <parameter name="WebApplicationOpenData.Models.WifiDBContext-Web.config Connection String" description="WebApplicationOpenData.Models.WifiDBContext Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="WebApplicationOpenData.Models.WifiDBContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\fabricio\\Documents\\Visual\ Studio\ 2015\\Projects\\WebApplicationOpenData\\WebApplicationOpenData\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='WebApplicationOpenData.Models.WifiDBContext']/@connectionString" />
+  </parameter>
+</parameters>
